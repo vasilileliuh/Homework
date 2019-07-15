@@ -5,5 +5,6 @@ html code added
 
 <body>
 <nav></nav>
+<p>Plain text</p>
 
 </body>
