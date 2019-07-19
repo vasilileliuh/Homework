@@ -7,5 +7,6 @@ html code added
 <nav></nav>
 <h1>Hello!</h1>
 <p>Plain text</p>
+<div></div>
 
 </body>
