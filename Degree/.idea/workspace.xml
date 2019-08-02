@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="101a31ac-8b80-4572-a614-0b8eade71822" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/exercise BMI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise BMI/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise2-26/Vasily.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercise2-31/Parent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/exerciseAge.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exerciseAge/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exercise4/exercise4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exercise BMI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exercise BMI/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+            <state relative-caret-position="200">
+              <caret line="12" column="21" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -57,9 +40,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-12" />
-    <option name="y" value="80" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-4" />
+    <option name="y" value="82" />
     <option name="width" value="1388" />
     <option name="height" value="790" />
   </component>
@@ -73,6 +56,9 @@
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -124,7 +110,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="64" width="1110" height="632" extended-state="1" />
+    <frame x="-3" y="66" width="1110" height="632" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="UI Designer" />
@@ -137,7 +124,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.36105034" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.418" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.682" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -153,8 +140,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+        <state relative-caret-position="200">
+          <caret line="12" column="21" selection-end-line="26" />
         </state>
       </provider>
     </entry>
