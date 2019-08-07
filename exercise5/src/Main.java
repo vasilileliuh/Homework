@@ -13,13 +13,13 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the world's population: ");
-        double worldPopulation = in.nextLong();
+        long worldPopulation = in.nextLong();
         System.out.print("Enter the population of the US: ");
-        double usPopulation = in.nextLong();
+        long usPopulation = in.nextLong();
 
-        double percentOfUsPopulation = usPopulation * 100 / worldPopulation ;
+        double percentOfUsPopulation = (double)usPopulation * 100 / (double)worldPopulation ;
 
-        System.out.printf("The population of the US is %f%% of the world population \n", percentOfUsPopulation);
+        System.out.printf("The population of the US is %.4f%% of the world population \n", percentOfUsPopulation);
 
 
     }
