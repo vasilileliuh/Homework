@@ -44,6 +44,8 @@ public class Main {
                     float monthPaymentB = MONTH_PAYMENT_PACKAGE_B_USD + extraHoursB;
                     System.out.printf("Your total payment is %.2f dollars \n", monthPaymentB);
                     float differentMonthPaymentBC = monthPaymentB - MONTH_PAYMENT_PACKAGE_C_USD;
+                    if(monthPaymentB > MONTH_PAYMENT_PACKAGE_C_USD)
+                        System.out.printf("You would save %.2f dollars if switch to Package C\n", differentMonthPaymentBC);
                 break;
 
                 case 'c':
