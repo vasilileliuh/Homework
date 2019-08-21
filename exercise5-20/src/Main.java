@@ -8,7 +8,7 @@ public class Main {
         double quarterPi = 1;
         int signSymbol = -1;
         double startValue = 3;
-        while (startValue < 753_690)
+        while (startValue < 10_000)
         {
             quarterPi = quarterPi + signSymbol / startValue;
             startValue += 2;
