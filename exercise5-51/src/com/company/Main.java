@@ -16,10 +16,15 @@ public class Main {
             if (a.charAt(i) == b.charAt(i))
                 common += a.charAt(i);
         }
-        if(common.trim().isEmpty())
+        if(common.trim().isEmpty() || (common.charAt(0) != a.charAt(0)) )
         System.out.printf("%s and %s have no common prefix\n", a , b);
         else
         System.out.println("The common prefix is " + common);
 
     }
 }
+
+//{if(common.charAt(0) != a.charAt(0)) {
+//        common = "";
+//          break;
+//        }
