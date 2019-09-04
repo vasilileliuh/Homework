@@ -81,7 +81,7 @@ public class Car {
     public void setIsNew(boolean isNew){
         this.isNew = isNew;
     }
-
+@Override
     public String toString(){
         return "Car model = " + model
                 + ", Max Speed = " + maxSpeed
