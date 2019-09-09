@@ -15,11 +15,11 @@ public class Car {
     }
 
     public Car() {
-        this("Mercedes", 250, "Red", 2010, true);
+        this("Mercedes", 250, "Red", 2019, true);
     }
 
     public Car(String model, int maxSpeed) {
-        this(model, maxSpeed, "Red", 2010, true);
+        this(model, maxSpeed, "Black", 2019, true);
     }
 
     public Car(String model, int maxSpeed, String color, int yearOfIssue, boolean isNew) {
@@ -92,25 +92,5 @@ public class Car {
 
 
 
-    public static void main(String[] args) {
-        Car standard = new Car();
-        Car bmw = new Car("BMW", 220);
-        Car renault = new Car("Renault", 175, "White", 1998, false);
-        System.out.println(standard);
-        System.out.println(bmw);
-        System.out.println(renault);
-        System.out.println(Car.GENUS);
 
-        standard.alarmSound();
-        standard.engineSound();
-        standard.runningRace("Belgium GrandPrix");
-        bmw.alarmSound();
-        bmw.engineSound();
-        bmw.runningRace("Belgium GrandPrix");
-        renault.alarmSound();
-        renault.engineSound();
-        renault.runningRace("Belgium GrandPrix");
-
-
-    }
 }
