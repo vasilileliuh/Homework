@@ -9,7 +9,6 @@ public class CheckPasswordUtils {
         }
         return digits;
     }
-
     public static int lettersCheck(String passwordToCheck) {
         int letters = 0;
         for (int i = 0; i < passwordToCheck.length(); i++) {
@@ -18,4 +17,5 @@ public class CheckPasswordUtils {
         }
         return letters;
     }
+
 }
