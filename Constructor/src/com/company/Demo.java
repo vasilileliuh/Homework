@@ -20,6 +20,11 @@ public class Demo {
         renault.engineSound();
         renault.runningRace("Belgium GrandPrix");
 
+        Car renaultCopy = new Car("Renault", 175, "White", 1998, false);
+        System.out.println(standard.equals(bmw));
+        System.out.println(bmw.equals(renault));
+        System.out.println(renault.equals(renaultCopy));
+
         System.out.println();
 
         Plane standard1 = new Plane();
@@ -39,6 +44,11 @@ public class Demo {
         tu.engineSound();
         tu.makingFlight("Moscow - Tokio");
 
+        Plane tu2 = new Plane("Tu-204", 175, "White", 1998, false);
+        System.out.println(standard1.equals(boeing));
+        System.out.println(boeing.equals(tu));
+        System.out.println(tu.equals(tu2));
+
         System.out.println();
 
         Deer a = new Deer();
@@ -52,6 +62,11 @@ public class Demo {
         albert.findFood("Moss", 8);
         bob.roar();
         bob.jump();
+
+        Deer albert2 = new Deer("Albert", 15, "Red", "Red Tree");
+        System.out.println(a.equals(bob));
+        System.out.println(bob.equals(albert));
+        System.out.println(albert.equals(albert2));
 
         System.out.println();
 
@@ -67,6 +82,11 @@ public class Demo {
         maple.rustle();
         maple.grow();
 
+        Tree firTree2 = new Tree("Fir-tree", 14, "Green", "sting");
+        System.out.println(pine.equals(maple));
+        System.out.println(maple.equals(firTree));
+        System.out.println(firTree.equals(firTree2));
+
         System.out.println();
 
         Table retro = new Table();
@@ -80,6 +100,11 @@ public class Demo {
         retro.restavration("Varnish", 1);
         classic.creak();
         modern.creak();
+
+        Table classic2 = new Table("Classic", 1980, "Gray", 3);
+        System.out.println(retro.equals(modern));
+        System.out.println(modern.equals(classic));
+        System.out.println(classic.equals(classic2));
 
     }
 }

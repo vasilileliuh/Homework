@@ -86,5 +86,20 @@ public class Table {
 
     }
 
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof Table) {
+            Table that = (Table) obj;
+            return this.designation.equals(that.designation)
+                    && this.modelYear == that.modelYear
+                    && this.color.equals(that.color)
+                    && this.numberOfLegs == that.numberOfLegs;
+        }
+        else {
+            return false;
+        }
+    }
 
 }

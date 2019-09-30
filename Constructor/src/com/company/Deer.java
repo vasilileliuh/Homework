@@ -89,6 +89,21 @@ public class Deer {
 
         }
 
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof Deer) {
+            Deer that = (Deer) obj;
+            return this.name.equals(that.name)
+                    && this.ageInYears == that.ageInYears
+                    && this.color.equals(that.color)
+                    && this.breed.equals(that.breed);
+        }
+        else {
+            return false;
+        }
+    }
 
     }
 
