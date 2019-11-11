@@ -74,15 +74,16 @@ public class Car {
         this.yearOfIssue = yearOfIssue;
     }
 
-    public boolean getIsNew(boolean isNew){
+    public boolean getIsNew(boolean isNew) {
         return isNew;
     }
 
-    public void setIsNew(boolean isNew){
+    public void setIsNew(boolean isNew) {
         this.isNew = isNew;
     }
-@Override
-    public String toString(){
+
+    @Override
+    public String toString() {
         return "Car model = " + model
                 + ", Max Speed = " + maxSpeed
                 + ", Color = " + color
@@ -90,7 +91,21 @@ public class Car {
                 + ", Is new " + isNew;
     }
 
-
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof Car) {
+            Car that = (Car) obj;
+            return this.model.equals(that.model)
+                    && this.maxSpeed == that.maxSpeed
+                    && this.color.equals(that.color)
+                    && this.yearOfIssue == that.yearOfIssue
+                    && this.isNew == that.isNew;
+        } else {
+            return false;
+        }
+    }
 
 
 }

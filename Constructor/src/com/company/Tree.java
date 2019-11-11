@@ -89,5 +89,21 @@ public class Tree {
 
     }
 
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof Tree) {
+            Tree that = (Tree) obj;
+            return this.designation.equals(that.designation)
+                    && this.ageInYears == that.ageInYears
+                    && this.color.equals(that.color)
+                    && this.leafShape.equals(that.leafShape);
+        }
+        else {
+            return false;
+        }
+    }
+
 
 }

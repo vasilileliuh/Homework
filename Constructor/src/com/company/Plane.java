@@ -90,7 +90,22 @@ public class Plane {
                 + ", Is combat " + isCombat;
     }
 
-
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof Plane) {
+            Plane that = (Plane) obj;
+            return this.model.equals(that.model)
+                    && this.maxCapacity == that.maxCapacity
+                    && this.color.equals(that.color)
+                    && this.yearOfIssue == that.yearOfIssue
+                    && this.isCombat == that.isCombat;
+        }
+        else {
+            return false;
+        }
+    }
 
 
 }
