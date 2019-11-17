@@ -7,12 +7,8 @@ public class TestInitApp {
         float y = 0.25f;
         float z;
 
-        if ( x >= 0 ) {
-             z = x * y;
-        } else {
-             z = x / y;
-        }
+        z = x * y;
 
-        System.out.printf( "(%f,%f) -> %f", x,y,z );
+        System.out.printf("(%f,%f) -> %f", x, y, z);
     }
 }
