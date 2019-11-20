@@ -25,12 +25,12 @@ public class DrawLineWithForApp {
                 condition = false;
         }
 
-        System.out.println("Enter line direction (v - vertical; h - horizontal): ");
+        System.out.println("Enter line direction (v - vertical; h - horizontal; d - diagonal): ");
 
         while (!condition) {
             String inputString = reader.readLine().toLowerCase();
             direction = inputString.charAt(0);
-            if (direction == 'h' || direction == 'v')
+            if (direction == 'h' || direction == 'v' || direction == 'd')
                 condition = true;
             else
                 System.out.println("Try again: ");
@@ -39,9 +39,14 @@ public class DrawLineWithForApp {
         if (direction == 'h') {
             for (int i = 1; i <= length; i++)
                 System.out.print("-");
-        } else {
+        } else if (direction == 'v') {
             for (int i = 1; i <= length; i++)
                 System.out.println("|");
-        }
+        } else
+            for (int i = 1; i <= length; i++) {
+                System.out.println("\\");
+                for (int j = 1; j <= i; j++)
+                    System.out.print(" ");
+            }
     }
 }
