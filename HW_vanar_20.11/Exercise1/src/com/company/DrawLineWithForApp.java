@@ -28,7 +28,7 @@ public class DrawLineWithForApp {
         System.out.println("Enter line direction (v - vertical; h - horizontal): ");
 
         while (!condition) {
-            String inputString = reader.readLine();
+            String inputString = reader.readLine().toLowerCase();
             direction = inputString.charAt(0);
             if (direction == 'h' || direction == 'v')
                 condition = true;
