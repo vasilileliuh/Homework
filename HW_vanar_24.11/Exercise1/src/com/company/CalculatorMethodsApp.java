@@ -17,39 +17,44 @@ public class CalculatorMethodsApp {
         printDivider();
         printResult(add(1, 2));
         printDivider();
-
+        printResult(pow(10, 3));
+        printDivider();
         printResult(sub(add(1, mul(pow(2, 3), div(3, 4))), 5));
 
     }
 
-    static void printResult(int result) {
+    private static void printResult(int result) {
         if (result > 99999999 || result < -99999999)
             System.out.println("Error");
         else
             System.out.printf("result: %08d\n", result);
     }
 
-    static void printDivider() {
+    private static void printDivider() {
         System.out.println("################");
     }
 
-    static int add(int a, int b) {
+    private static int add(int a, int b) {
         return a + b;
     }
 
-    static int sub(int a, int b) {
+    private static int sub(int a, int b) {
         return a - b;
     }
 
-    static int mul(int a, int b) {
+    private static int mul(int a, int b) {
         return a * b;
     }
 
-    static int div(int a, int b) {
+    private static int div(int a, int b) {
         return a / b;
     }
 
-    static int pow(int a, int b) {
-        return (int) Math.pow(a, b);
+    private static int pow(int a, int b) {
+        int result = 1;
+        for (int i = 0; i < b; i++) {
+            result *= a;
+        }
+        return result;
     }
 }
