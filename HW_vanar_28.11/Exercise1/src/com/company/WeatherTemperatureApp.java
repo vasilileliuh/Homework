@@ -14,13 +14,13 @@ public class WeatherTemperatureApp {
         int countryCode = Integer.parseInt(reader.readLine());
 
         System.out.print("Temperature: ");
-        System.out.printf("%s%n", isCountryCodValid(countryCode) ? PrivateWeatherForecastProvider.getCurrentTemperature() : "Can't provide data for this country!");
+        System.out.printf("%s%n", isCountryCodeValid(countryCode) ? PrivateWeatherForecastProvider.getCurrentTemperature() : "Can't provide data for this country!");
         System.out.print("Humidity: ");
-        System.out.printf("%s%n", isCountryCodValid(countryCode) ? PrivateWeatherForecastProvider.getCurrentHumidity() : "Can't provide data for this country!");
+        System.out.printf("%s%n", isCountryCodeValid(countryCode) ? PrivateWeatherForecastProvider.getCurrentHumidity() : "Can't provide data for this country!");
 
     }
 
-    private static boolean isCountryCodValid(int countryCode) {
+    private static boolean isCountryCodeValid(int countryCode) {
         return countryCode == 484 || countryCode == 583 ||
                 countryCode == 498 || countryCode == 492 || countryCode == 496;
 
