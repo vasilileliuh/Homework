@@ -1,11 +1,14 @@
 package restaurant;
 
+import world.Person;
+
 public class Restaurant {
     // properties
     private String name;
     private Table tableNearWindow;
     private Table tableNearDoors;
     private Table tableNearBathroom;
+    private Person waiter;
 
 
     // constructor
@@ -37,13 +40,24 @@ public class Restaurant {
             return tableNearBathroom;
     }
 
+    public Person getWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(Person waiter) {
+        this.waiter = waiter;
+    }
+
     public void printInfo() {
         System.out.println("RESTAURANT: " + name);
         System.out.println("##################################");
+        waiter.printInfo();
         System.out.println();
-        tableNearWindow.printInfo();
-        tableNearDoors.printInfo();
-        tableNearBathroom.printInfo();
+        if (tableNearWindow != null)
+            tableNearWindow.printInfo();
+        if (tableNearDoors != null)
+            tableNearDoors.printInfo();
+        if (tableNearBathroom != null)
+            tableNearBathroom.printInfo();
     }
-
 }

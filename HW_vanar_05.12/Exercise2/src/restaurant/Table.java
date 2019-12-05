@@ -4,7 +4,7 @@ import world.Person;
 
 public class Table {
 
-    private int number;
+    public int number;
     private Person seatA;
     private Person seatB;
 

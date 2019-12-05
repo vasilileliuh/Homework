@@ -5,12 +5,14 @@ public class Person {
     private String fullName;
     private char gender;
     private int age;
+    private String jobTitle;
 
     // constructor
-    public Person(String fullName, char gender, int age) {
+    public Person(String fullName, char gender, int age, String jobTitle) {
         this.fullName = fullName;
         setGender(gender);
         setAge(age);
+        setJobTitle(jobTitle);
     }
 
     public String getFullName() {
@@ -43,8 +45,21 @@ public class Person {
             this.age = age;
     }
 
-    public void printInfo() {
-        System.out.printf("%s: %c, %d years%n", fullName, gender, age);
+    public String getJobTitle() {
+        return jobTitle;
     }
+
+    private void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public void printInfo() {
+        if (jobTitle == null)
+            System.out.printf("%s: %c, %d years%n", fullName, gender, age);
+        else
+            System.out.printf("%s(%s): %c, %d years%n", fullName, jobTitle, gender, age);
+    }
+
+
 }
 
