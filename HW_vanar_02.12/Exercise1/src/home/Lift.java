@@ -72,14 +72,10 @@ class Lift {
                     System.out.print("\u02C5");
                 else if (level + 1 == i && isMoving && j == 3 && movingDirectionUp)
                     System.out.print("\u005E");
-
                 else
                     System.out.print(" ");
-
-
             }
-            System.out.print("|");
-            System.out.println();
+            System.out.printf("|%n");
         }
         System.out.println();
     }

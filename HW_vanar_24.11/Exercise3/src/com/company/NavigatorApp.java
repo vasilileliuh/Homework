@@ -4,7 +4,7 @@ public class NavigatorApp {
 
     public static void main(String[] args) {
 
-        printMap(20, 15, 13, 4, 5, 4);
+        printMap(15, 25, 8, 14, 5, 4);
     }
 
     private static void printMap(int horizontalSize, int verticalSize, int observerXCoordinate, int observerYCoordinate,
