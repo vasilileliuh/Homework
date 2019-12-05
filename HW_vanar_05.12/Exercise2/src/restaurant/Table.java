@@ -4,7 +4,7 @@ import world.Person;
 
 public class Table {
 
-    public int number;
+    private int number;
     private Person seatA;
     private Person seatB;
 
@@ -17,6 +17,10 @@ public class Table {
             System.err.println("No such table exists!");
         else
             this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
     }
 
     public void setSeat(Person person, char seat) {

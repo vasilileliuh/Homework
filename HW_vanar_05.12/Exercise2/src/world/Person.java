@@ -8,6 +8,12 @@ public class Person {
     private String jobTitle;
 
     // constructor
+    public Person(String fullName, char gender, int age) {
+        this.fullName = fullName;
+        setGender(gender);
+        setAge(age);
+    }
+
     public Person(String fullName, char gender, int age, String jobTitle) {
         this.fullName = fullName;
         setGender(gender);
