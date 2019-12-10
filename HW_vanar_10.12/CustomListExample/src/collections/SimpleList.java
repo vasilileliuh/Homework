@@ -66,7 +66,7 @@ public class SimpleList {
         Box current = first;
         for (int i = 0; i < length; i++) {
             System.out.println(current.getValue());
-            current = current.getNext();
+            current = current.next;
         }
     }
 
