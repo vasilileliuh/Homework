@@ -1,9 +1,12 @@
 package tests;
 
 import robo.BetaRobot;
+import robo.RobotFactory;
+import robo.AbstractRobot;
 
 public class ChargeTest {
-    public static int runCase(BetaRobot robot) {
+    public static int runCase(RobotFactory BetaRobot) {
+        AbstractRobot robot = BetaRobot.getRobot("beta", "Bobo");
         int percentage = 0;
 
         robot.setCharge(-100);
@@ -21,12 +24,12 @@ public class ChargeTest {
         percentage += 30;
 
         robot.setCharge(50);
-        for (int i = 0; i < 100; i++){
-            if (robot.moveRight())
-                System.out.println("Robot min charge level= " + robot.getCharge());
+        for (int i = 0; i < 100; i++) {
+            if (!robot.moveRight())
+                i = 100;
         }
+        System.out.println("Robot min charge level= " + robot.getCharge());
         percentage += 40;
-
 
         return percentage;
     }

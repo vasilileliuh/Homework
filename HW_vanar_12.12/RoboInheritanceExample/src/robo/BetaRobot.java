@@ -1,68 +1,74 @@
 package robo;
 
-public class BetaRobot extends AlphaRobot {
+class BetaRobot extends AlphaRobot {
+    private byte charge;
+    private boolean isMoveOk = false;
 
-    final private byte LOW_CHARGE_PERCENTAGE = 5;
-    private String name;
-    private String model;
-    private int x;
-    private int y;
-    private byte charge;  // - заряд! (0..100)
-
-    public BetaRobot(String name, String model) {
+    BetaRobot(String name, String model) {
         super(name, model);
-        x = 0;
-        y = 0;
         charge = 0;
     }
-
 
     public byte getCharge() {
         return charge;
     }
 
     public void setCharge(int charge) {
-        if (charge < 0 || charge > 100)
+        byte CHARGE_MAX_VALUE = 100;
+        byte CHARGE_MIN_VALUE = 0;
+        if (charge < CHARGE_MIN_VALUE || charge > CHARGE_MAX_VALUE)
             System.err.println("Charge out of range error!");
         else
             this.charge = (byte) charge;
     }
 
+    @Override
     public boolean moveRight() {
-        boolean isMoveRightOk = false;
-        if (charge - 1 >= LOW_CHARGE_PERCENTAGE) {
-            isMoveRightOk = super.moveRight();
-            if (x % 2 == 0)
+        if (isChargeOk()) {
+            isMoveOk = super.moveRight();
+            if (getX() % 2 == 0)
                 charge--;
-            System.out.println("Test x values = " + x);
         }
-        return isMoveRightOk && (charge - 1 >= LOW_CHARGE_PERCENTAGE);
+        return isMoveOk && isChargeOk();
     }
 
+    @Override
     public boolean moveLeft() {
-        if (charge - 1 >= LOW_CHARGE_PERCENTAGE) {
-            setX(x--);
-            if (x % 2 == 0)
+        if (isChargeOk()) {
+            isMoveOk = super.moveLeft();
+            if (getX() % 2 == 0)
                 charge--;
         }
-        return !(x < 0 || x > 100) && (charge - 1 >= LOW_CHARGE_PERCENTAGE);
+        return isMoveOk && isChargeOk();
     }
 
+    @Override
     public boolean moveDown() {
-        if (charge - 1 >= LOW_CHARGE_PERCENTAGE) {
-            setY(y++);
-            if (y % 2 == 0)
+        if (isChargeOk()) {
+            isMoveOk = super.moveDown();
+            if (getY() % 2 == 0)
                 charge--;
         }
-        return !(y < 0 || y > 100) && (charge - 1 >= LOW_CHARGE_PERCENTAGE);
+        return isMoveOk && isChargeOk();
     }
 
+    @Override
     public boolean moveUp() {
-        if (charge - 1 >= LOW_CHARGE_PERCENTAGE) {
-            setY(y--);
-            if (y % 2 == 0)
+        if (isChargeOk()) {
+            isMoveOk = super.moveUp();
+            if (getY() % 2 == 0)
                 charge--;
         }
-        return !(y < 0 || y > 100) && (charge - 1 >= LOW_CHARGE_PERCENTAGE);
+        return isMoveOk && isChargeOk();
+    }
+
+    private boolean isChargeOk() {
+        byte LOW_CHARGE_PERCENTAGE = 5;
+        return charge - 1 >= LOW_CHARGE_PERCENTAGE;
+    }
+
+    @Override
+    public String toString() {
+        return "BetaRobot{" + super.toString() + ", charge= '" + charge + "'}";
     }
 }

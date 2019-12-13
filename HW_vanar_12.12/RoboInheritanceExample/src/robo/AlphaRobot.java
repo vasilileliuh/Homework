@@ -1,15 +1,12 @@
 package robo;
 
-public class AlphaRobot extends AbstractRobot {
+class AlphaRobot extends AbstractRobot {
+    private final byte X_Y_MAX_VALUE = 100;
+    private final byte X_Y_MIN_VALUE = 0;
     private String name;
     private String model;
     private int x;
     private int y;
-
-    AlphaRobot() {
-        x = 0;
-        y = 0;
-    }
 
     public AlphaRobot(String name, String model) {
         setName(name);
@@ -45,7 +42,7 @@ public class AlphaRobot extends AbstractRobot {
     }
 
     public void setX(int x) {
-        if (x < 0 || x > 100)
+        if (x < X_Y_MIN_VALUE || x > X_Y_MAX_VALUE)
             System.err.println("X value out of range error!");
         else
             this.x = x;
@@ -56,34 +53,58 @@ public class AlphaRobot extends AbstractRobot {
     }
 
     public void setY(int y) {
-        if (y < 0 || y > 100)
+        if (y < X_Y_MIN_VALUE || y > X_Y_MAX_VALUE)
             System.err.println("Y value out of range error!");
         else
             this.y = y;
     }
 
     public boolean moveRight() {
-        if (x + 1 <= 100)
+        if (hasRight())
             setX(++x);
-        return x <= 100;
+        return x < X_Y_MAX_VALUE;
     }
 
     public boolean moveLeft() {
-        if (x - 1 >= 0)
-            setX(x--);
-        return x - 1 >= 0;
+        if (hasLeft())
+            setX(--x);
+        return x > X_Y_MIN_VALUE;
     }
 
     public boolean moveDown() {
-        if (y + 1 <= 100)
-            setY(y++);
-        return y + 1 <= 100;
+        if (hasDown())
+            setY(++y);
+        return y < X_Y_MAX_VALUE;
     }
 
     public boolean moveUp() {
-        if (y - 1 >= 0)
-            setY(y--);
-        return x - 1 >= 0;
+        if (hasUp())
+            setY(--y);
+        return y > X_Y_MIN_VALUE;
+    }
+
+    boolean hasRight() {
+        return x + 1 < X_Y_MAX_VALUE;
+    }
+
+    boolean hasLeft() {
+        return x - 1 > X_Y_MIN_VALUE;
+    }
+
+    boolean hasUp() {
+        return y - 1 > X_Y_MIN_VALUE;
+    }
+
+    @Override
+    public String toString() {
+        return "AlphaRobot{" +
+                "name='" + name + '\'' +
+                ", model='" + model + '\'' +
+                '}';
+    }
+
+    boolean hasDown() {
+        return y + 1 < X_Y_MAX_VALUE;
     }
 
 }

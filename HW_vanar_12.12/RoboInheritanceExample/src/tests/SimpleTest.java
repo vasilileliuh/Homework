@@ -79,7 +79,7 @@ public class SimpleTest {
         // X cannot be outside 0..100
         robot.setX(0);
         if (robot.moveLeft()) {
-            System.err.println("Move test failed\nREASON: moveleft() out of bounds!");
+            System.err.println("Move test failed\nREASON: moveLeft() out of bounds!");
             return percentage;
         }
         percentage += 10;
