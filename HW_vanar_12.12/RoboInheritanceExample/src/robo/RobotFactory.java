@@ -1,10 +1,10 @@
 package robo;
 
 public class RobotFactory {
-    public static AbstractRobot getRobot(String model, String name) {
+    public static AbstractRobot getRobot(String name, String model) {
         AbstractRobot robot = null;
         if (model == null)
-            return robot;
+            return null;
         else {
             switch (model) {
                 case "alpha":
@@ -17,10 +17,9 @@ public class RobotFactory {
                     robot = new CharlieRobot(name, "charlie");
                     break;
                 default:
-                    System.out.println("Robot model out of bounds!");
+                    System.err.println("Robot model out of bounds!");
             }
             return robot;
         }
-
     }
 }

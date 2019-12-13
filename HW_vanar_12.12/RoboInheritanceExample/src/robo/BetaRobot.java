@@ -1,6 +1,6 @@
 package robo;
 
-class BetaRobot extends AlphaRobot {
+public class BetaRobot extends AlphaRobot {
     private byte charge;
     private boolean isMoveOk = false;
 
@@ -13,13 +13,12 @@ class BetaRobot extends AlphaRobot {
         return charge;
     }
 
-    public void setCharge(int charge) {
-        byte CHARGE_MAX_VALUE = 100;
-        byte CHARGE_MIN_VALUE = 0;
-        if (charge < CHARGE_MIN_VALUE || charge > CHARGE_MAX_VALUE)
-            System.err.println("Charge out of range error!");
-        else
+    public boolean setCharge(int charge) {
+        if (isChargeValueWithinRange())
             this.charge = (byte) charge;
+        else
+            System.err.println("Charge out of range error!");
+        return isChargeValueWithinRange();
     }
 
     @Override
@@ -65,6 +64,12 @@ class BetaRobot extends AlphaRobot {
     private boolean isChargeOk() {
         byte LOW_CHARGE_PERCENTAGE = 5;
         return charge - 1 >= LOW_CHARGE_PERCENTAGE;
+    }
+
+    private boolean isChargeValueWithinRange() {
+        byte CHARGE_MAX_VALUE = 100;
+        byte CHARGE_MIN_VALUE = 0;
+        return charge > CHARGE_MIN_VALUE && charge <= CHARGE_MAX_VALUE;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package robo;
 
-class AlphaRobot extends AbstractRobot {
+public class AlphaRobot extends AbstractRobot {
     private final byte X_Y_MAX_VALUE = 100;
     private final byte X_Y_MIN_VALUE = 0;
     private String name;
@@ -8,7 +8,7 @@ class AlphaRobot extends AbstractRobot {
     private int x;
     private int y;
 
-    public AlphaRobot(String name, String model) {
+    AlphaRobot(String name, String model) {
         setName(name);
         setModel(model);
         x = 0;

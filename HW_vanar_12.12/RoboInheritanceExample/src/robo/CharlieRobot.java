@@ -1,8 +1,8 @@
 package robo;
 
-class CharlieRobot extends BetaRobot {
+public class CharlieRobot extends BetaRobot {
 
-    public CharlieRobot(String name, String model) {
+    CharlieRobot(String name, String model) {
         super(name, model);
     }
 
