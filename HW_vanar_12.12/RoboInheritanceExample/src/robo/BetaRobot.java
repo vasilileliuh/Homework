@@ -1,6 +1,6 @@
 package robo;
 
-public class BetaRobot extends AlphaRobot {
+public class BetaRobot extends AlphaRobot implements HasBatteryInterface {
     private byte charge;
     private boolean isMoveOk = false;
 

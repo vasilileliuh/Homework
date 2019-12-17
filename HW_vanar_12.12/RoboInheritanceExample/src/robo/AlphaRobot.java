@@ -95,6 +95,10 @@ public class AlphaRobot extends AbstractRobot {
         return y - 1 > X_Y_MIN_VALUE;
     }
 
+    boolean hasDown() {
+        return y + 1 < X_Y_MAX_VALUE;
+    }
+
     @Override
     public String toString() {
         return "AlphaRobot{" +
@@ -103,8 +107,5 @@ public class AlphaRobot extends AbstractRobot {
                 '}';
     }
 
-    boolean hasDown() {
-        return y + 1 < X_Y_MAX_VALUE;
-    }
-
 }
+
