@@ -2,6 +2,7 @@ package main;
 
 import robo.*;
 import tests.ChargeTest;
+import tests.ChargingStationTest;
 import tests.DiagonalWalkTest;
 import tests.SimpleTest;
 
@@ -27,5 +28,12 @@ public class Application {
         System.out.println(robo2);
         System.out.println(robo3);
 
+//        System.out.printf("Charging station test passed %d%%\n", ChargingStationTest.runCase(StationFactory.getStation(0, 0), (BetaRobot) robo3));
+//        System.out.println(robo3);
+
+        ChargingStation first = StationFactory.getStation(0, 0);
+        first.setCharge(55);
+        System.out.println("first station charge = " + first.getCharge());
+        System.out.println(first.toString());
     }
 }
