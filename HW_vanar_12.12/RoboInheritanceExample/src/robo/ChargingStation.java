@@ -1,29 +1,88 @@
 package robo;
 
-public class ChargingStation extends BetaRobot implements HasBatteryInterface, Has2DCoordinatesInterface {
+public class ChargingStation implements HasBatteryInterface, Has2DCoordinatesInterface {
 
-    ChargingStation() {
-        super.setCharge(10);
+    private final byte X_Y_MAX_VALUE = 100;
+    private final byte X_Y_MIN_VALUE = 0;
+    private byte CHARGE_MAX_VALUE = 100;
+    private int x;
+    private int y;
+    private byte charge;
+
+    ChargingStation(int x, int y) {
+        setX(x);
+        setY(y);
+        setCharge(0);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        if (x < X_Y_MIN_VALUE || x > X_Y_MAX_VALUE)
+            System.err.println("X value out of range error!");
+        else
+            this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        if (y < X_Y_MIN_VALUE || y > X_Y_MAX_VALUE)
+            System.err.println("Y value out of range error!");
+        else
+            this.y = y;
+    }
+
+    public byte getCharge() {
+        return charge;
+    }
+
+    public boolean setCharge(int charge) {
+        if (isChargeValueWithinRange(charge))
+            this.charge = (byte) charge;
+        else
+            System.err.println("Charge out of range error!");
+        return isChargeValueWithinRange(charge);
+    }
+
+    private boolean hasStationEnoughCharge() {
+        byte LOW_CHARGE_PERCENTAGE = 5;
+        return charge - 1 >= LOW_CHARGE_PERCENTAGE;
+    }
+
+    private boolean isChargeValueWithinRange(int charge) {
+        byte CHARGE_MIN_VALUE = 0;
+        return charge > CHARGE_MIN_VALUE && charge <= CHARGE_MAX_VALUE;
     }
 
     public boolean charge(HasBatteryInterface chargeable) {
         byte counter = 0;
-        while (chargeable.getCharge() < CHARGE_MAX_VALUE && super.isChargeOk() &&
+        while (chargeable.getCharge() < CHARGE_MAX_VALUE && hasStationEnoughCharge() &&
                 isRobotConnected((Has2DCoordinatesInterface) chargeable)) {
-            for (int i = 1; i <= 10; i++) {
-                if (chargeable.setCharge(chargeable.getCharge() + i))
-                    counter++;
-            }
+            chargeable.setCharge(chargeable.getCharge() + 1);
+            counter++;
             if (counter % 10 == 0)
-                super.setCharge(super.getCharge() - 1);
+                setCharge(getCharge() - 1);
         }
-        return chargeable.getCharge() < CHARGE_MAX_VALUE && super.isChargeOk() &&
+        return chargeable.getCharge() < CHARGE_MAX_VALUE && hasStationEnoughCharge() &&
                 isRobotConnected((Has2DCoordinatesInterface) chargeable);
     }
 
     private boolean isRobotConnected(Has2DCoordinatesInterface coordinate) {
-        return coordinate.getX() == super.getX() && coordinate.getY() == super.getY();
+        return coordinate.getX() == getX() && coordinate.getY() == getY();
     }
 
+    @Override
+    public String toString() {
+        return "ChargingStation{" +
+                "x= " + x +
+                ", y= " + y +
+                ", charge= " + charge +
+                '}';
+    }
 
 }

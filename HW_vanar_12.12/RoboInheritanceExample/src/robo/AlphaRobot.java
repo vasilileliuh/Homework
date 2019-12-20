@@ -8,11 +8,6 @@ public class AlphaRobot extends AbstractRobot {
     private int x;
     private int y;
 
-    AlphaRobot() {
-        x = 0;
-        y = 0;
-    }
-
     AlphaRobot(String name, String model) {
         setName(name);
         setModel(model);
@@ -109,8 +104,9 @@ public class AlphaRobot extends AbstractRobot {
         return "AlphaRobot{" +
                 "name='" + name + '\'' +
                 ", model='" + model + '\'' +
+                ", x='" + x + '\'' +
+                ", y='" + y + '\'' +
                 '}';
     }
-
 }
 

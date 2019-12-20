@@ -1,14 +1,8 @@
 package robo;
 
 public class BetaRobot extends AlphaRobot implements HasBatteryInterface {
-    byte CHARGE_MAX_VALUE = 100;
-    private byte CHARGE_MIN_VALUE = 0;
     private byte charge;
     private boolean isMoveOk = false;
-
-
-    BetaRobot() {
-    }
 
     BetaRobot(String name, String model) {
         super(name, model);
@@ -20,11 +14,11 @@ public class BetaRobot extends AlphaRobot implements HasBatteryInterface {
     }
 
     public boolean setCharge(int charge) {
-        if (isChargeValueWithinRange())
+        if (isChargeValueWithinRange(charge))
             this.charge = (byte) charge;
         else
             System.err.println("Charge out of range error!");
-        return isChargeValueWithinRange();
+        return isChargeValueWithinRange(charge);
     }
 
     @Override
@@ -67,12 +61,14 @@ public class BetaRobot extends AlphaRobot implements HasBatteryInterface {
         return isMoveOk && isChargeOk();
     }
 
-    boolean isChargeOk() {
+    private boolean isChargeOk() {
         byte LOW_CHARGE_PERCENTAGE = 5;
         return charge - 1 >= LOW_CHARGE_PERCENTAGE;
     }
 
-    private boolean isChargeValueWithinRange() {
+    private boolean isChargeValueWithinRange(int charge) {
+        byte CHARGE_MIN_VALUE = 0;
+        byte CHARGE_MAX_VALUE = 100;
         return charge > CHARGE_MIN_VALUE && charge <= CHARGE_MAX_VALUE;
     }
 
