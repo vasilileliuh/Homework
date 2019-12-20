@@ -61,19 +61,24 @@ public class ChargingStation implements HasBatteryInterface, Has2DCoordinatesInt
 
     public boolean charge(HasBatteryInterface chargeable) {
         byte counter = 0;
-        while (chargeable.getCharge() < CHARGE_MAX_VALUE && hasStationEnoughCharge() &&
-                isRobotConnected((Has2DCoordinatesInterface) chargeable)) {
-            chargeable.setCharge(chargeable.getCharge() + 1);
-            counter++;
-            if (counter % 10 == 0)
-                setCharge(getCharge() - 1);
-        }
-        return chargeable.getCharge() < CHARGE_MAX_VALUE && hasStationEnoughCharge() &&
-                isRobotConnected((Has2DCoordinatesInterface) chargeable);
+        if (hasStationAbilityToCharge(chargeable)) {
+            while (hasStationAbilityToCharge(chargeable)) {
+                chargeable.setCharge(chargeable.getCharge() + 1);
+                counter++;
+                if (counter % 10 == 0)
+                    setCharge(getCharge() - 1);
+            }
+            return true;
+        } else return false;
     }
 
     private boolean isRobotConnected(Has2DCoordinatesInterface coordinate) {
         return coordinate.getX() == getX() && coordinate.getY() == getY();
+    }
+
+    private boolean hasStationAbilityToCharge(HasBatteryInterface chargeable) {
+        return chargeable.getCharge() < CHARGE_MAX_VALUE && hasStationEnoughCharge() &&
+                isRobotConnected((Has2DCoordinatesInterface) chargeable);
     }
 
     @Override
