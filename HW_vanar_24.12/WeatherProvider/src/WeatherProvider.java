@@ -2,62 +2,68 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-class WeatherProvider {
-    private static Number temperatureForToday = generateTemperature();
-    private static List<Number> temperaturesFor10Days = generateTemperaturesForecastFor10Days();
+class WeatherProvider<T extends Number> {
+    private T temperatureForToday = generateTemperature();
+    private List<T> temperaturesFor10Days = generateTemperaturesForecastFor10Days();
 //    private static double[] temperaturesFor10Days = generateTemperaturesForecastFor10Days();
 
-    private static Number generateTemperature() {
+    private T generateTemperature() {
         Random rd = new Random();
-        Number temperature = -150 + (300) * rd.nextFloat();
+//        T temperature = (T) Float.valueOf(-150 + (300) * rd.nextFloat());
+        T temperature = (T) Integer.valueOf(rd.nextInt((300) + 1) + -150);
         return round(temperature);
     }
 
-    private static Number round(Number valueToRound) {
-        float multiplicationFactor = (float) Math.pow(10, 1);
-        float interestedInZeroDPs = (float) valueToRound * multiplicationFactor;
-        return Math.round(interestedInZeroDPs) / multiplicationFactor;
+    private T round(T valueToRound) {
+        byte multiplicationFactor = (byte) Math.pow(10, 1);
+        float interestedInZeroDPs;
+        if (valueToRound instanceof Float)
+            interestedInZeroDPs = (Float) valueToRound * multiplicationFactor;
+        else
+            interestedInZeroDPs = (float) valueToRound.intValue() * multiplicationFactor;
+
+        return (T) Float.valueOf(Math.round(interestedInZeroDPs) / multiplicationFactor);
     }
 
-    private static List<Number> generateTemperaturesForecastFor10Days() {
-        List<Number> temperatureList = new ArrayList<>();
+    private List<T> generateTemperaturesForecastFor10Days() {
+        List<T> temperatureList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             temperatureList.add(generateTemperature());
         }
         return temperatureList;
     }
 
-    static Number getTemperatureForToday() {
+    T getTemperatureForToday() {
         return temperatureForToday;
     }
 
-    static List<Number> getTemperaturesForecastFor10Days() {
+    List<T> getTemperaturesForecastFor10Days() {
         return temperaturesFor10Days;
     }
 
-    static Number calculateAvgFor10Days() {
-        float sum = 0.0f;
-        for (Number temperature : temperaturesFor10Days) {
-            sum += (float) temperature;
+    T calculateAvgFor10Days() {
+        float sum = 0f;
+        for (T temperature : temperaturesFor10Days) {
+            sum += (Float) temperature;
         }
-        return sum / temperaturesFor10Days.size();
+        return (T) Float.valueOf(sum / temperaturesFor10Days.size());
     }
 
-    static Number getMaxTemperatureFor10Days() {
-        float max = (float) temperaturesFor10Days.get(0);
+    T getMaxTemperatureFor10Days() {
+        float max = (Float) temperaturesFor10Days.get(0);
         for (int i = 1; i < temperaturesFor10Days.size(); i++) {
-            if (max < (float) temperaturesFor10Days.get(i))
-                max = (float) temperaturesFor10Days.get(i);
+            if (max < (Float) temperaturesFor10Days.get(i))
+                max = (Float) temperaturesFor10Days.get(i);
         }
-        return max;
+        return (T) Float.valueOf(max);
     }
 
-    static Number getMinTemperatureFor10Days() {
-        float min = (float) temperaturesFor10Days.get(0);
-        for (Number temperature : temperaturesFor10Days) {
-            if (min > (float) temperature)
-                min = (float) temperature;
+    T getMinTemperatureFor10Days() {
+        float min = (Float) temperaturesFor10Days.get(0);
+        for (T temperature : temperaturesFor10Days) {
+            if (min > (Float) temperature)
+                min = (Float) temperature;
         }
-        return min;
+        return (T) Float.valueOf(min);
     }
 }
