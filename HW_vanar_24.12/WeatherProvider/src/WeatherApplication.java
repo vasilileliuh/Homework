@@ -14,7 +14,7 @@ public class WeatherApplication {
                 "-----------------------------------",
                 "FORECAST FOR 10 DAYS");
         for (int i = 0; i < 10; i++) {
-            System.out.printf("DAY %2d: %6.1f ℃%n", i + 1, WeatherProvider.getTemperaturesForecastFor10Days()[i]);
+            System.out.printf("DAY %2d: %6.1f ℃%n", i + 1, WeatherProvider.getTemperaturesForecastFor10Days().get(i));
         }
         System.out.printf("%nMAX: %9.1f ℃%n" +
                         "AVG: %9.1f ℃%n" +
