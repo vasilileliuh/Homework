@@ -1,13 +1,22 @@
 public class WeatherApplication {
-    static int n = 1;
+    private static int n = 1;
 
     public static void main(String[] args) {
+        try {
+            printWeather();
+        } catch (TemperatureDataOutOfRangeException e) {
+            System.out.printf("############# WEATHER #############\n" +
+                    "\n" +
+                    "We are sorry! \n" +
+                    "The data is unavailable!\n" +
+                    "\n" +
+                    "###################################");
+        }
 
-        printWeather();
 
     }
 
-    public static void printWeather() {
+    public static void printWeather() throws TemperatureDataOutOfRangeException {
         WeatherProvider moon = new WeatherProvider();
         System.out.printf("%s%n%n" +
                         "TODAY: %.1f ℃%n%n" +
