@@ -9,16 +9,16 @@ class WeatherProvider<T extends Number> {
 
     private T generateTemperature() {
         Random rd = new Random();
-//        T temperature = (T) Float.valueOf(-150 + (300) * rd.nextFloat());
-        T temperature = (T) Integer.valueOf(rd.nextInt((300) + 1) + -150);
+        T temperature = (T) Float.valueOf(-150 + (300) * rd.nextFloat());
+//        T temperature = (T) Integer.valueOf(rd.nextInt((300) + 1) + -150);
         return round(temperature);
     }
 
     private T round(T valueToRound) {
-        byte multiplicationFactor = (byte) Math.pow(10, 1);
+        float multiplicationFactor = (float) Math.pow(10, 1);
         float interestedInZeroDPs;
         if (valueToRound instanceof Float)
-            interestedInZeroDPs = (Float) valueToRound * multiplicationFactor;
+            interestedInZeroDPs = valueToRound.floatValue() * multiplicationFactor;
         else
             interestedInZeroDPs = (float) valueToRound.intValue() * multiplicationFactor;
 
