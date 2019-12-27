@@ -9,7 +9,7 @@ class WeatherProvider<T extends Number> {
 
     private T generateTemperature() {
         Random rd = new Random();
-        T temperature = (T) Float.valueOf(-200 + (400) * rd.nextFloat());
+        T temperature = (T) Float.valueOf(-165 + (330) * rd.nextFloat());
 //        T temperature = (T) Integer.valueOf(rd.nextInt((304) + 1) + -152);
         return round(temperature);
     }
