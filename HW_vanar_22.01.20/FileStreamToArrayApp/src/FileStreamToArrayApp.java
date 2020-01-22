@@ -56,7 +56,7 @@ public class FileStreamToArrayApp {
     public static void printArrayData() {
         int i = 1;
         for (Car car : cars) {
-            if (car instanceof Car)
+            if (car != null)
                 System.out.println(i + ". " + car.toString());
             i++;
         }
