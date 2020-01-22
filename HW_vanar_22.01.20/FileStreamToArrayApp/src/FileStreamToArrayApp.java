@@ -26,14 +26,13 @@ public class FileStreamToArrayApp {
         if (file.exists()) {
             try {
                 Scanner fileIn = new Scanner(file);
+                int i = 0;
+                cars = new Car[10];
                 while (fileIn.hasNext()) {
-
                     String model = fileIn.next();
                     Integer year = fileIn.nextInt();
                     Integer km = fileIn.nextInt();
                     Integer price = fileIn.nextInt();
-                    int i = 0;
-                    cars = new Car[10];
                     cars[i] = new Car(model, year, km, price);
                     i++;
                 }
@@ -55,12 +54,13 @@ public class FileStreamToArrayApp {
      * > 3. ....
      */
     public static void printArrayData() {
+        int i = 1;
         for (Car car : cars) {
-            System.out.println(car.toString());
+            if (car instanceof Car)
+                System.out.println(i + ". " + car.toString());
+            i++;
         }
-
     }
-
 
     static class Car {
         String model;
@@ -80,15 +80,12 @@ public class FileStreamToArrayApp {
 
         @Override
         public String toString() {
-            if (this == null)
-                return "null";
-            else
-                return "Car{" +
-                        "model= '" + model + '\'' +
-                        ", year= " + year +
-                        ", km= " + km +
-                        ", price= " + price +
-                        '}';
+            return "CAR: " +
+                    model + " " +
+                    year + " " +
+                    km + "km " +
+                    price + "USD";
+
         }
 
 
