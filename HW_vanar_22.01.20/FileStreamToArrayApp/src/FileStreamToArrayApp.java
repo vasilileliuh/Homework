@@ -33,8 +33,7 @@ public class FileStreamToArrayApp {
                     Integer year = fileIn.nextInt();
                     Integer km = fileIn.nextInt();
                     Integer price = fileIn.nextInt();
-                    cars[i] = new Car(model, year, km, price);
-                    i++;
+                    cars[i++] = new Car(model, year, km, price);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
