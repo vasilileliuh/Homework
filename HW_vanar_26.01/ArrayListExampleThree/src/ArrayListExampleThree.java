@@ -34,8 +34,8 @@ public class ArrayListExampleThree {
         // swap values
         System.out.println("Swap uttermost values: \n");
         String temp = developers.get(0);
-        developers.set(0, developers.get(4));
-        developers.set(4, temp);
+        developers.set(0, developers.get(developers.size() - 1));
+        developers.set(developers.size() - 1, temp);
 
         for (String name : developers) {
             System.out.println(name);
