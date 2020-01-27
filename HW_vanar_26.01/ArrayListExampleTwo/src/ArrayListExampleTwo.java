@@ -2,24 +2,25 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ArrayListExampleTwo {
+
+    private final static int SIZE = 31;
+
     public static void main(String[] args) {
 
         ArrayList<Double> temps = new ArrayList<>();
 
         Random random = new Random();
-        while (temps.size() < 31) {
+        while (temps.size() < SIZE) {
             temps.add((Math.round((-25 + random.nextDouble() * 50) * 10) / 10.0));
         }
 
         System.out.printf("%8s%7s%7s%7s%7s%7s%7s%n%s", "mo", "tu", "we", "th", "fi", "sa", "su", "1.");
-        int j = 0;
-        int i = 2;
+        int j = 0, i = 2;
         for (double temperature : temps) {
             System.out.printf("%7.1f", temperature);
             j++;
             if (j % 7 == 0) {
-                System.out.print("\n" + i + ".");
-                i++;
+                System.out.print("\n" + i++ + ".");
             }
         }
 
