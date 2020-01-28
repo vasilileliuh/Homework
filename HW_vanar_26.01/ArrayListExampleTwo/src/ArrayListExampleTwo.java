@@ -4,6 +4,9 @@ import java.util.Random;
 public class ArrayListExampleTwo {
 
     private final static int SIZE = 31;
+    private final static int MIN_TEMPERATURE = -25;
+    private final static int FULL_TEMPERATURE_RANGE = 50;
+    private final static double TEN = 10.0;
 
     public static void main(String[] args) {
 
@@ -11,7 +14,7 @@ public class ArrayListExampleTwo {
 
         Random random = new Random();
         while (temps.size() < SIZE) {
-            temps.add((Math.round((-25 + random.nextDouble() * 50) * 10) / 10.0));
+            temps.add((Math.round((MIN_TEMPERATURE + FULL_TEMPERATURE_RANGE * random.nextDouble()) * TEN) / TEN));
         }
 
         System.out.printf("%8s%7s%7s%7s%7s%7s%7s%n%s", "mo", "tu", "we", "th", "fi", "sa", "su", "1.");
