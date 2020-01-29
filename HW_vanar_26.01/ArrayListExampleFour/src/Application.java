@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Application {
 
-    private final static float EIGHT_MARK = 8.0f;
+    private final static float EIGHT_MARK = 8f;
 
     public static void main(String[] args) {
 
@@ -24,6 +24,7 @@ public class Application {
             }
         }
         students.get(indexOfTheBest).grade += 0.1f;
+        students.get(indexOfTheBest).grade = Math.round(students.get(indexOfTheBest).grade * 100) / 100f;
 
         ArrayList<Student> bestStudents = new ArrayList<>();
         for (Student student : students) {
@@ -32,13 +33,13 @@ public class Application {
         }
 
         printArray(students);
-        System.out.println();
+        System.out.println("\nList of the best students: \n");
         printArray(bestStudents);
 
     }
 
-    static void printArray(ArrayList<Student> array) {
-        for (Student student : array) {
+    private static void printArray(ArrayList<Student> students) {
+        for (Student student : students) {
             System.out.println(student);
         }
     }
