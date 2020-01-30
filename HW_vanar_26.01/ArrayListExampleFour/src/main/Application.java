@@ -1,6 +1,10 @@
+package main;
+
+import source.Student;
+
 import java.util.ArrayList;
 
-public class Application {
+public class Application extends Student {
 
     private final static float EIGHT_MARK = 8f;
 
@@ -18,17 +22,18 @@ public class Application {
         float bestStudentGrade = 0;
 
         for (Student student : students) {
-            if (student.grade > bestStudentGrade) {
-                bestStudentGrade = student.grade;
+            if (student.getGrade() > bestStudentGrade) {
+                bestStudentGrade = student.getGrade();
                 indexOfTheBest = students.indexOf(student);
             }
         }
-        students.get(indexOfTheBest).grade += 0.1f;
-        students.get(indexOfTheBest).grade = Math.round(students.get(indexOfTheBest).grade * 100) / 100f;
+        students.get(indexOfTheBest).setGrade(students.get(indexOfTheBest).getGrade() + 0.1f);
+        students.get(indexOfTheBest).setGrade(Math.round(students.get(indexOfTheBest).getGrade() * 100) / 100f);
 
         ArrayList<Student> bestStudents = new ArrayList<>();
+
         for (Student student : students) {
-            if (student.grade > EIGHT_MARK)
+            if (student.getGrade() > EIGHT_MARK)
                 bestStudents.add(student);
         }
 
