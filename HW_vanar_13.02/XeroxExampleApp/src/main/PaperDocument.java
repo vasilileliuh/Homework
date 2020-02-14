@@ -1,6 +1,6 @@
 package main;
 
-public class PaperDocument implements PaperDocumentInterface {
+public class PaperDocument implements PaperDocumentInterface, Cloneable {
     private String type;
     private String title;
     private String content;

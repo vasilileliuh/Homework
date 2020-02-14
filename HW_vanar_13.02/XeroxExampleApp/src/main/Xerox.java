@@ -3,7 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Xerox implements Cloneable {
+public class Xerox {
     public PaperDocumentInterface copy(PaperDocumentInterface original) throws CloneNotSupportedException {
         return (PaperDocumentInterface) ((PaperDocument) original).clone();
     }
