@@ -1,6 +1,6 @@
 package marine;
 
-public class SeaFish extends Fish implements FishInterface, Cloneable {
+public class SeaFish extends Fish {
 
     // deleting public access modifier to close access to constructor
     SeaFish(String type, Integer weight, String environment) {

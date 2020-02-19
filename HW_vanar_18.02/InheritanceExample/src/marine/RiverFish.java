@@ -1,6 +1,6 @@
 package marine;
 
-public class RiverFish extends Fish implements FishInterface, Cloneable {
+public class RiverFish extends Fish {
 
     RiverFish(String type, Integer weight, String environment) {
         super(type, weight, environment);
