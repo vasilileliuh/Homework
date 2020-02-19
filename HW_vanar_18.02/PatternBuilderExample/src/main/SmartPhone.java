@@ -19,6 +19,18 @@ public class SmartPhone {
         battery = builder.battery;
     }
 
+    public void setMemory(int memory) {
+        this.memory = memory;
+    }
+
+    public void setCores(int cores) {
+        this.cores = cores;
+    }
+
+    public void setBattery(int battery) {
+        this.battery = battery;
+    }
+
     @Override
     public String toString() {
         return "SmartPhone{" +

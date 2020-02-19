@@ -14,6 +14,8 @@ public class Application {
                 .withMemory(4096)
                 .build();
 
+        thirdSP.setBattery(3000);
+
         System.out.println(firstSP);
         System.out.println(secondSP);
         System.out.println(thirdSP);
