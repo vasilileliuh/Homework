@@ -49,8 +49,8 @@ public class Fish implements FishInterface, Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    protected FishInterface clone() throws CloneNotSupportedException {
+        return (FishInterface) super.clone();
     }
 
     @Override

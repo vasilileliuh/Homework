@@ -24,9 +24,9 @@ public class FishFactory {
             return null;
         }
         if (fish instanceof SeaFish) {
-            return (FishInterface) ((SeaFish) fish).clone();
+            return ((SeaFish) fish).clone();
         } else if (fish instanceof RiverFish) {
-            return (FishInterface) ((RiverFish) fish).clone();
+            return ((RiverFish) fish).clone();
         }
         return null;
     }
