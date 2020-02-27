@@ -39,8 +39,8 @@ public class Application {
                 new Product("food", "Bread", 4.5f, 250));
 
         VATFunction vatFunction = product -> {
-            float newPrice = product.getPrice() * VATMultiplier;
-            return new Product(product.getCategory(), product.getName(), newPrice, product.getQuantity());
+            float newPriceWithVAT = product.getPrice() * VATMultiplier;
+            return new Product(product.getCategory(), product.getName(), newPriceWithVAT, product.getQuantity());
         };
         IsHealthPredicate isNotHealthPredicate = product -> !"health".equals(product.getCategory());
         IsSHPredicate isNotSHPredicate = product -> !"second hand".equals(product.getCategory());
