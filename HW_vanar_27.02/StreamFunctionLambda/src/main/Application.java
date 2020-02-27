@@ -34,17 +34,20 @@ public class Application {
                 new Product("health", "Training apparatus", 85f, 12),
                 new Product("food", "Bread", 4.5f, 250));
 
-        IsHealthPredicate isHealthPredicate = product -> product.getCategory().equals("health");
-        IsSHPredicate isSHPredicate = product -> product.getCategory().equals("second hand");
-        ConsolePrintConsumer consolePrintConsumer = product -> System.out.println(product);
+        VATFunction vatFunction = product -> {
+            float newPrice = product.getPrice() * 1.18f;
+            return new Product(product.getCategory(), product.getName(), newPrice, product.getQuantity());
+        };
+        IsHealthPredicate isHealthPredicate = product -> !"health".equals(product.getCategory());
+        IsSHPredicate isSHPredicate = product -> !"second hand".equals(product.getCategory());
+        ConsolePrintConsumer consolePrintConsumer = System.out::println;
 
-        List<Product> modifiedProductList = productList.stream().filter(isHealthPredicate::test)
+        List<Product> modifiedProductList = productList.stream()
+                .filter(isHealthPredicate::test)
                 .filter(isSHPredicate::test)
-//              .function
+                .map(vatFunction::calculate)
                 .collect(Collectors.toList());
 
-
-        productList.stream().forEach(consolePrintConsumer::consume);
-        modifiedProductList.stream().forEach(consolePrintConsumer::consume);
+        modifiedProductList.forEach(consolePrintConsumer::consume);
     }
 }
