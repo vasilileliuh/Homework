@@ -1,4 +1,4 @@
-package main;
+package source;
 
 public class Product {
     private String category;
