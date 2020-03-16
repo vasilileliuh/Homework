@@ -10,8 +10,8 @@ public class App {
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter start/end dates YYYY-MM-DD: ");
-//        String startDate = in.next(), endDate = in.next();
-        String startDate = "2020-03-07", endDate = "2020-03-13";
+        String startDate = in.next(), endDate = in.next();
+//        String startDate = "2020-02-29", endDate = "2020-03-02";
 
         new NASADataProvider().getNeoAsteroids(startDate, endDate);
 

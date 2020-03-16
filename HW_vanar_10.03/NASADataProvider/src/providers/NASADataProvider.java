@@ -37,7 +37,7 @@ public class NASADataProvider {
 
         Period period = Period.between(localStartDate, localEndDate);
         int diff = period.getDays();
-        System.out.println("Period= " + diff + " days");
+        System.out.println("Period= " + (diff + 1) + " days");
 
         JSONObject data = new JSONObject(stringData);
         int count = data.getInt("element_count");
