@@ -45,11 +45,12 @@ public class NASADataProvider {
                 for (Map.Entry<String, HashMap<String, JSONObject>> innerPair : innerMap.entrySet())
                     System.out.println(innerPair.getKey() + " : " + innerPair.getValue());
                 System.out.println();
-                System.out.println("Estimated_diameter > kilometers= " + innerMap.get("estimated_diameter").get("kilometers"));
+                System.out.println("Estimated_diameter > kilometers= " + innerMap.get("estimated_diameter").get("kilometers").getFloat("estimated_diameter_min"));
 //                проблема распарсить JSONObject и достать "estimated_diameter_min"
 //                так не работает:
-//                JSONObject lastJSONObject = innerMap.get("estimated_diameter").get("kilometers");
-                System.out.println();
+                JSONObject lastJSONObject = new JSONObject(innerMap.get("estimated_diameter").get("kilometers"));
+//                System.out.println(".getClass().getName()= " + innerMap.get("estimated_diameter").getClass().getName());
+                System.out.println("JSONObject= " + lastJSONObject.toString());
             }
         }
 
